@@ -35,8 +35,8 @@ func TestKeyMarshalJSON(t *testing.T) {
 
 func TestKeyGetName(t *testing.T) {
 	testCases := []struct {
-		key		        Key
-		expectedResult  string
+		key            Key
+		expectedResult string
 	}{
 		{Key("aws:Referer"), "Referer"},
 		{Key("private-message"), "private-message"},
@@ -45,7 +45,7 @@ func TestKeyGetName(t *testing.T) {
 
 	for i, testCase := range testCases {
 		result := testCase.key.Name()
-		
+
 		if testCase.expectedResult != result {
 			t.Fatalf("case %v: keyname: expected: %v, got: %v\n", i+1, testCase.expectedResult, result)
 		}

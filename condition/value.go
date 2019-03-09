@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
-	
+
 	"github.com/globalsign/mgo/bson"
 )
 
@@ -193,4 +193,4 @@ func NewStringValue(s string) Value {
 	value := &Value{}
 	value.StoreString(s)
 	return *value
-} 
+}

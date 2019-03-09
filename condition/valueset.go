@@ -27,6 +27,19 @@ func (set ValueSet) MarshalJSON() ([]byte, error) {
 	return json.Marshal(values)
 }
 
+func (set ValueSet) GetBSON() (interface{}, error) {
+	var values []Value
+	for k := range set {
+		values = append(values, k)
+	}
+
+	if len(values) == 0 {
+		return nil, fmt.Errorf("invalid value set %v", set)
+	}
+
+	return values, nil
+}
+
 // UnmarshalJSON - decodes JSON data.
 func (set *ValueSet) UnmarshalJSON(data []byte) error {
 	var v Value
